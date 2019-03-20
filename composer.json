@@ -18,8 +18,8 @@
   "require": {
     "php": "^7.2",
     "roave/security-advisories": "dev-master",
-    "event-engine/php-document-store": "dev-master",
-    "event-engine/php-event-store": "dev-master"
+    "event-engine/php-document-store": "^0.1",
+    "event-engine/php-event-store": "^0.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.0",
