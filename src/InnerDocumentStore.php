@@ -68,6 +68,31 @@ trait InnerDocumentStore
         $this->documentStore->dropCollection($collectionName);
     }
 
+    public function hasCollectionIndex(string $collectionName, string $indexName): bool
+    {
+        return $this->documentStore->hasCollectionIndex($collectionName, $indexName);
+    }
+
+    /**
+     * @param string $collectionName
+     * @param Index $index
+     * @throws \Throwable if adding did not succeed
+     */
+    public function addCollectionIndex(string $collectionName, Index $index): void
+    {
+        $this->documentStore->addCollectionIndex($collectionName, $index);
+    }
+
+    /**
+     * @param string $collectionName
+     * @param string $indexName
+     * @throws \Throwable if dropping did not succeed
+     */
+    public function dropCollectionIndex(string $collectionName, string $indexName): void
+    {
+        $this->documentStore->dropCollectionIndex($collectionName, $indexName);
+    }
+
     /**
      * @param string $collectionName
      * @param string $docId
