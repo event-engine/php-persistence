@@ -23,4 +23,12 @@ interface AggregateStateStore
      * @throws AggregateNotFound
      */
     public function loadAggregateState(string $aggregateType, string $aggregateId, int $expectedVersion = null);
+
+    /**
+     * @param string $aggregateType
+     * @param string $aggregateId
+     * @param int $maxVersion
+     * @return mixed State of the aggregate
+     */
+    public function loadAggregateStateUntil(string $aggregateType, string $aggregateId, int $maxVersion);
 }
