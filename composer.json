@@ -18,7 +18,7 @@
   "require": {
     "php": "^7.2",
     "roave/security-advisories": "dev-master",
-    "event-engine/php-document-store": "^0.2",
+    "event-engine/php-document-store": "^0.3",
     "event-engine/php-event-store": "^0.2",
     "event-engine/php-messaging": "^0.1"
   },
