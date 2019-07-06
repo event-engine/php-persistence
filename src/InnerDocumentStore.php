@@ -85,12 +85,12 @@ trait InnerDocumentStore
 
     /**
      * @param string $collectionName
-     * @param string $indexName
+     * @param string|Index $index
      * @throws \Throwable if dropping did not succeed
      */
-    public function dropCollectionIndex(string $collectionName, string $indexName): void
+    public function dropCollectionIndex(string $collectionName, $index): void
     {
-        $this->documentStore->dropCollectionIndex($collectionName, $indexName);
+        $this->documentStore->dropCollectionIndex($collectionName, $index);
     }
 
     /**
