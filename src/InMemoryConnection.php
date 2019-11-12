@@ -26,6 +26,7 @@ final class InMemoryConnection implements \ArrayAccess, TransactionalConnection
         'event_streams' => [],
         'projections' => [],
         'documents' => [],
+        'documentIndices' => [],
     ];
 
     /**
