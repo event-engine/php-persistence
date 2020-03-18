@@ -181,4 +181,14 @@ trait InnerDocumentStore
     {
         return $this->documentStore->filterDocs($collectionName, $filter, $skip, $limit, $orderBy);
     }
+
+    /**
+     * @param string $collectionName
+     * @param Filter $filter
+     * @return array
+     */
+    public function filterDocIds(string $collectionName, Filter $filter): array
+    {
+        return $this->documentStore->filterDocIds($collectionName, $filter);
+    }
 }
