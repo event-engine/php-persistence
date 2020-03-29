@@ -190,5 +190,15 @@ trait InnerDocumentStore
     public function filterDocIds(string $collectionName, Filter $filter): array
     {
         return $this->documentStore->filterDocIds($collectionName, $filter);
+    }  
+      
+    /**
+     * @param string $collectionName
+     * @param Filter $filter
+     * @return int Number of docs
+     */
+    public function countDocs(string $collectionName, Filter $filter): int
+    {
+        return $this->documentStore->countDocs($collectionName, $filter);
     }
 }
