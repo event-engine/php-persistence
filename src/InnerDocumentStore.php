@@ -15,6 +15,7 @@ use EventEngine\DocumentStore\DocumentStore;
 use EventEngine\DocumentStore\Filter\Filter;
 use EventEngine\DocumentStore\Index;
 use EventEngine\DocumentStore\OrderBy\OrderBy;
+use EventEngine\DocumentStore\PartialSelect;
 
 trait InnerDocumentStore
 {
@@ -170,16 +171,27 @@ trait InnerDocumentStore
     }
 
     /**
-     * @param string $collectionName
-     * @param Filter $filter
-     * @param int|null $skip
-     * @param int|null $limit
-     * @param OrderBy|null $orderBy
-     * @return \Traversable list of docs
+     * @inheritDoc
      */
     public function filterDocs(string $collectionName, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
     {
         return $this->documentStore->filterDocs($collectionName, $filter, $skip, $limit, $orderBy);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function findDocs(string $collectionName, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
+    {
+        return $this->documentStore->findDocs($collectionName, $filter, $skip, $limit, $orderBy);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function findPartialDocs(string $collectionName, PartialSelect $partialSelect, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
+    {
+        return $this->documentStore->findPartialDocs($collectionName, $partialSelect, $filter, $skip, $limit, $orderBy);
     }
 
     /**
