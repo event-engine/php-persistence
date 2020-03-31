@@ -171,6 +171,17 @@ trait InnerDocumentStore
     }
 
     /**
+     * @param string $collectionName
+     * @param PartialSelect $partialSelect
+     * @param string $docId
+     * @return array|null
+     */
+    public function getPartialDoc(string $collectionName, PartialSelect $partialSelect, string $docId): ?array
+    {
+        return $this->documentStore->getPartialDoc($collectionName, $partialSelect, $docId);
+    }
+
+    /**
      * @inheritDoc
      */
     public function filterDocs(string $collectionName, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
