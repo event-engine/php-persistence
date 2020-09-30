@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace EventEngine\Persistence;
 
 use EventEngine\DocumentStore\DocumentStore;
+use EventEngine\DocumentStore\Exception\RuntimeException;
+use EventEngine\DocumentStore\Exception\UnknownCollection;
 use EventEngine\DocumentStore\Filter\Filter;
 use EventEngine\DocumentStore\Index;
 use EventEngine\DocumentStore\OrderBy\OrderBy;
@@ -138,6 +140,30 @@ trait InnerDocumentStore
     public function upsertDoc(string $collectionName, string $docId, array $docOrSubset): void
     {
         $this->documentStore->upsertDoc($collectionName, $docId, $docOrSubset);
+    }
+
+    /**
+     * @param string $collectionName
+     * @param string $docId
+     * @param array $doc
+     * @throws UnknownCollection
+     * @throws RuntimeException if updating did not succeed
+     */
+    public function replaceDoc(string $collectionName, string $docId, array $doc): void
+    {
+        $this->documentStore->replaceDoc($collectionName, $docId, $doc);
+    }
+
+    /**
+     * @param string $collectionName
+     * @param Filter $filter
+     * @param array $set
+     * @throws UnknownCollection
+     * @throws RuntimeException in case of connection error or other issues
+     */
+    public function replaceMany(string $collectionName, Filter $filter, array $set): void
+    {
+        $this->documentStore->replaceMany($collectionName, $filter, $set);
     }
 
     /**
