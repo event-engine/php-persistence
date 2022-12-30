@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": "^7.2 || ^8.0",
+    "php": "^8.0",
     "event-engine/php-document-store": "^0.8.1",
     "event-engine/php-event-store": "^0.3.1",
     "event-engine/php-messaging": "^0.2.1"
