@@ -13,6 +13,7 @@ namespace EventEngine\Persistence;
 
 use EventEngine\Persistence\Exception\TransactionAlreadyStarted;
 use EventEngine\Persistence\Exception\TransactionNotStarted;
+use ReturnTypeWillChange;
 
 final class InMemoryConnection implements \ArrayAccess, TransactionalConnection
 {
@@ -70,7 +71,7 @@ final class InMemoryConnection implements \ArrayAccess, TransactionalConnection
         $this->inTransaction = false;
     }
 
-    public function offsetSet($key, $value)
+    #[ReturnTypeWillChange] public function offsetSet($key, $value): void
     {
         if (null === $key) {
             $this->storage[] = $value;
@@ -79,12 +80,12 @@ final class InMemoryConnection implements \ArrayAccess, TransactionalConnection
         }
     }
 
-    public function offsetExists($key)
+    #[\ReturnTypeWillChange] public function offsetExists($key): bool
     {
         return isset($this->storage[$key]);
     }
 
-    public function offsetUnset($key)
+    #[ReturnTypeWillChange] public function offsetUnset($key): void
     {
         if ($this->inTransaction) {
             throw new \RuntimeException('In transaction use roll back');
@@ -92,7 +93,7 @@ final class InMemoryConnection implements \ArrayAccess, TransactionalConnection
         unset($this->storage[$key]);
     }
 
-    public function &offsetGet($key)
+    #[ReturnTypeWillChange] public function &offsetGet($key)
     {
         $ret = null;
         if (! $this->offsetExists($key)) {
