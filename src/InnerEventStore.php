@@ -49,7 +49,7 @@ trait InnerEventStore
         string $aggregateType,
         string $aggregateId,
         int $minVersion = 1,
-        int $maxVersion = null
+        ?int $maxVersion = null
     ): \Iterator {
         return $this->eventStore->loadAggregateEvents(
             $streamName,

@@ -22,7 +22,7 @@ interface AggregateStateStore
      * @return mixed State of the aggregate
      * @throws AggregateNotFound
      */
-    public function loadAggregateState(string $aggregateType, string $aggregateId, int $expectedVersion = null);
+    public function loadAggregateState(string $aggregateType, string $aggregateId, ?int $expectedVersion = null);
 
     /**
      * @param string $aggregateType

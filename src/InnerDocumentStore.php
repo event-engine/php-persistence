@@ -210,7 +210,7 @@ trait InnerDocumentStore
     /**
      * @inheritDoc
      */
-    public function filterDocs(string $collectionName, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
+    public function filterDocs(string $collectionName, Filter $filter, ?int $skip = null, ?int $limit = null, ?OrderBy $orderBy = null): \Traversable
     {
         return $this->documentStore->filterDocs($collectionName, $filter, $skip, $limit, $orderBy);
     }
@@ -218,7 +218,7 @@ trait InnerDocumentStore
     /**
      * @inheritDoc
      */
-    public function findDocs(string $collectionName, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
+    public function findDocs(string $collectionName, Filter $filter, ?int $skip = null, ?int $limit = null, ?OrderBy $orderBy = null): \Traversable
     {
         return $this->documentStore->findDocs($collectionName, $filter, $skip, $limit, $orderBy);
     }
@@ -226,7 +226,7 @@ trait InnerDocumentStore
     /**
      * @inheritDoc
      */
-    public function findPartialDocs(string $collectionName, PartialSelect $partialSelect, Filter $filter, int $skip = null, int $limit = null, OrderBy $orderBy = null): \Traversable
+    public function findPartialDocs(string $collectionName, PartialSelect $partialSelect, Filter $filter, ?int $skip = null, ?int $limit = null, ?OrderBy $orderBy = null): \Traversable
     {
         return $this->documentStore->findPartialDocs($collectionName, $partialSelect, $filter, $skip, $limit, $orderBy);
     }
